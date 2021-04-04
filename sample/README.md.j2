@@ -1,0 +1,40 @@
+# wandbox-status
+
+[Wandbox][] status  
+[Wandbox][] new compiler notification: [wandbox-news](https://github.com/srz-zumix/wandbox-news)
+
+## Language List
+{% set lang_list = wandbox_languages() | markdown_link_pair %}
+{%- for lang in lang_list %}
+* [{{ lang.name }}](#{{ lang.link }})
+{%- endfor %}
+
+## Head
+
+|language|name|version|status|
+|:------|:------|:-----|:-----|
+{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("*head*") %}
+{%- for compiler in compilers %}
+{%- set compiler_url_path = (compiler.language + "/" + compiler.name) | url_quote | replace_url_quote %}
+{%- set version_td = "![" + compiler.name + "](https://img.shields.io/endpoint?url=https%3A%2F%2Fsrz-zumix.github.io%2Fwandbox-status%2Fshields%2Fhead-version%2F" + compiler_url_path + "-version.json)" %}
+{%- set status_td = "![" + compiler.name + "](https://img.shields.io/endpoint?url=https%3A%2F%2Fsrz-zumix.github.io%2Fwandbox-status%2Fshields%2F" + compiler_url_path + ".json)" %}
+|{{ compiler.language }}|{{ compiler.name }}|{{ version_td }}|{{ status_td }}|
+{%- endfor %}
+
+{%- set lang_list = wandbox_languages() %}
+{%- for lang in lang_list %}
+
+## {{ lang }}
+
+|version|status|
+|:------|:-----|
+{%- set compilers = wandbox_list() | wandbox_language_compilers(lang) %}
+{%- for compiler in compilers %}
+{%- set compiler_url_path = (compiler.language + "/" + compiler.name) | url_quote | replace_url_quote %}
+|{{ compiler.name }}|![{{ compiler.name }}](https://img.shields.io/endpoint?url=https%3A%2F%2Fsrz-zumix.github.io%2Fwandbox-status%2Fshields%2F{{ compiler_url_path }}.json)|
+{%- endfor %}
+
+{%- endfor %}
+
+[Wandbox]:https://wandbox.org/
+[wandbox-news]:https://github.com/srz-zumix/wandbox-news

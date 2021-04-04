@@ -10,10 +10,11 @@ from kamidana import (
     # as_test,
 )
 
-from wandbox.wrapper import Wrapper as Wandbox
+from wandbox.wrapper import Wrapper
+from wandbox.wandbox import Wandbox
 import fnmatch
 
-w = Wandbox()
+w = Wrapper()
 
 
 def get_compiler_list():
@@ -48,3 +49,16 @@ def wandbox_language_compilers(v, lang):
         if d['language'] == lang:
             result.append(d)
     return result
+
+@as_global
+def wandbox_run(compiler, code, options=None, compiler_option=None, runtime_option=None):
+    wandbox = Wandbox()
+    wandbox.compiler(compiler)
+    if options:
+        wandbox.options(options)
+    if compiler_option:
+        wandbox.add_compiler_options(compiler_option)
+    if runtime_option:
+        wandbox.add_runtime_options(runtime_option)
+    wandbox.code(code)
+    return wandbox.run()

@@ -5,7 +5,7 @@
 
 from kamidana import (
     as_filter,
-    # as_global,
+    as_global,
     # as_globals_generator,
     # as_test,
 )
@@ -49,3 +49,9 @@ def url_quote_plus(v, safe=''):
 @as_filter
 def replace_url_quote(v):
     return v.replace('%23', '%2523').replace('%20', '%2520')
+
+
+@as_global
+def fread(path):
+    with open(path) as f:
+        return f.read()

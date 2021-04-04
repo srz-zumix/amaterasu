@@ -1,0 +1,13 @@
+{%- set compiler = "cpython-3.8.0" %}
+{%- set src = fread("sample/main.py") %}
+```
+{{ src }}
+```
+
+```
+{{ wandbox_run(compiler, src).program_message }}
+```
+
+```
+{{ wandbox_run(compiler, src, runtime_option="Test").program_message }}
+```

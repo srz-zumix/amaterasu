@@ -11,6 +11,7 @@ install-test-deps: ## install test dependencies
 
 test: install
 	amaterasu sample/wandbox.j2
+	amaterasu sample/wandbox-run.j2
 
 kamidana: install
 	kamidana -a=amaterasu.amaterasu sample/wandbox.j2
@@ -35,3 +36,6 @@ help: ## Display this help screen
 docker:
 	docker run -it --rm -v ${PWD}:/work -w /work python:3.8-alpine sh
 	# apk add make
+
+readme:
+	amaterasu README.md.j2 > README.md

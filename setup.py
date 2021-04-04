@@ -17,7 +17,7 @@ f.close()
 test_deps = ['importlib-metadata<2,>=0.12', 'tox', 'pytest']
 
 setup(
-    name = "amaterasu"
+    name = "amaterasu-j2"
     , version = version_
     , author = author_
     , author_email = "zumix.cpp@gmail.com"

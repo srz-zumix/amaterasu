@@ -1,7 +1,7 @@
 # amaterasu
 
-[![PyPI version](https://badge.fury.io/py/amaterasu.svg)](https://badge.fury.io/py/amaterasu)
-[![Python Versions](https://img.shields.io/pypi/pyversions/wandbox_api.svg)](https://pypi.org/project/amaterasu/)
+[![PyPI version](https://badge.fury.io/py/amaterasu-j2.svg)](https://badge.fury.io/py/amaterasu-j2)
+[![Python Versions](https://img.shields.io/pypi/pyversions/amaterasu_j2.svg)](https://pypi.org/project/amaterasu-j2/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2ff3eb34b617416c97f590b45b5e82fe)](https://app.codacy.com/manual/srz-zumix/amaterasu?utm_source=github.com&utm_medium=referral&utm_content=srz-zumix/amaterasu&utm_campaign=Badge_Grade_Settings)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/srz-zumix/amaterasu.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/srz-zumix/amaterasu/context:python)
 [![GitHub Actions](https://github.com/srz-zumix/amaterasu/actions/workflows/main.yml/badge.svg)](https://github.com/srz-zumix/amaterasu/actions/workflows/main.yml)
@@ -13,7 +13,7 @@ amaterasu cli is kamidana wrapper, Adds additional option automatically.
 ## Usage
 
 ```sh
-$ pip install amaterasu
+$ pip install amaterasu-j2
 $ amaterasu sample/wandbox.j2
 * clang-3*c
   * clang-3.9.1-c
@@ -40,7 +40,7 @@ sample/wandbox.j2
 ### Use kamidana
 
 ```sh
-$ pip install amaterasu
+$ pip install amaterasu-j2
 $ kamidana -a=amaterasu.amaterasu sample/wandbox.j2
 * clang-3*c
   * clang-3.9.1-c

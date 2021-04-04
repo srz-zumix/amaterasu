@@ -60,15 +60,15 @@ $ kamidana -a=amaterasu.amaterasu sample/wandbox.j2
 
 |name|usage|detail|
 |:--|:--|:--|
-|wandbox_list| {{ wandbox_list }} | return wandbox compilers list json|
-|wandbox_languages| {{ wandbox_languages }} | return wandbox language list array|
+|wandbox_list| {{ wandbox_list() }} | return wandbox compilers list json|
+|wandbox_languages| {{ wandbox_languages() }} | return wandbox language list array|
 
 ### Filter
 
 |name|usage|detail|
 |:--|:--|:--|
-|wandbox_fnmatch_compilers| {{ wandbox_list }} | wandbox_fnmatch_compilers("clang-3*c") }}|filter compiler name by fnmatch|
-|wandbox_language_compilers| {{ wandbox_list }} | wandbox_language_compilers("C++") }}|filter by language|
+|wandbox_fnmatch_compilers| {{ wandbox_list() \| wandbox_fnmatch_compilers("clang-3*c") }}|filter compiler name by fnmatch|
+|wandbox_language_compilers| {{ wandbox_list() \| wandbox_language_compilers("C++") }}|filter by language|
 
 #### Utilities
 

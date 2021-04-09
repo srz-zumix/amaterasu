@@ -30,7 +30,7 @@ def wandbox_list():
 def wandbox_languages():
     r = get_compiler_list()
     langs = map(lambda x: x['language'], r)
-    return sorted(set(langs))
+    return sorted(set(langs), key=str.lower)
 
 
 @as_filter

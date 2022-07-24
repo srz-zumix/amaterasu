@@ -17,23 +17,19 @@ amaterasu cli is kamidana wrapper, Adds additional option automatically.
 ```sh
 $ pip install amaterasu-j2
 $ amaterasu sample/wandbox.j2
-* clang-3*c
-  * clang-3.9.1-c
-  * clang-3.8.1-c
-  * clang-3.7.1-c
-  * clang-3.6.0-c
-  * clang-3.5.0-c
-  * clang-3.4-c
-  * clang-3.3-c
-  * clang-3.2-c
-  * clang-3.1-c
+* cpython-3*
+  * cpython-3.10.2
+  * cpython-3.9.3
+  * cpython-3.8.9
+  * cpython-3.7.10
+  * cpython-3.6.12
 ```
 
 sample/wandbox.j2
 
 ```j2
-* clang-3*c
-{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("*clang-3*c") %}
+* cpython-3*
+{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("cpython-3*") %}
 {%- for compiler in compilers %}
   * {{ compiler.name }}
 {%- endfor %}
@@ -46,24 +42,16 @@ $ pip install amaterasu-j2
 $ amaterasu sample/wandbox-run.j2
 ```
 # This file is a "Hello, world!" in Python language by CPython for wandbox.
-
 import sys
-
 print("Hello, world!")
-
 if len(sys.argv) > 1:
     print(sys.argv[1])
-
 # CPython references:
 #   https://www.python.org/
-
 ```
-
 ```
 Hello, world!
-
 ```
-
 ```
 Hello, world!
 Test
@@ -74,7 +62,8 @@ Test
 sample/wandbox-run.j2
 
 ````j2
-{%- set compiler = "cpython-3.8.0" %}
+{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("cpython-3*") %}
+{%- set compiler = compilers[0].name %}
 {%- set src = fread("sample/main.py") %}
 ```
 {{ src }}
@@ -94,16 +83,12 @@ sample/wandbox-run.j2
 ```sh
 $ pip install amaterasu-j2
 $ kamidana -a=amaterasu.amaterasu sample/wandbox.j2
-* clang-3*c
-  * clang-3.9.1-c
-  * clang-3.8.1-c
-  * clang-3.7.1-c
-  * clang-3.6.0-c
-  * clang-3.5.0-c
-  * clang-3.4-c
-  * clang-3.3-c
-  * clang-3.2-c
-  * clang-3.1-c
+* cpython-3*
+  * cpython-3.10.2
+  * cpython-3.9.3
+  * cpython-3.8.9
+  * cpython-3.7.10
+  * cpython-3.6.12
 ```
 
 ## Features

@@ -43,11 +43,18 @@ setup(
             'amaterasu = amaterasu.__main__:main'
         ]
     }
-    # jinja2 <= 3.0.2 reason:
-    #   https://stackoverflow.com/questions/72163382/attributeerror-module-jinja2-ext-has-no-attribute-with
-    # markupsafe == 2.0.1 reason:
-    #   cannot import name 'soft_unicode' from 'markupsafe' 
-    , install_requires=['requests', 'pyyaml', 'wandbox-api >= 0.9.28', 'jinja2 <= 3.0.2', 'markupsafe==2.0.1', 'kamidana']
+    , install_requires=[
+        'requests'
+        , 'pyyaml'
+        , 'wandbox-api >= 0.9.28'
+        # jinja2 <= 3.0.2 reason:
+        #   https://stackoverflow.com/questions/72163382/attributeerror-module-jinja2-ext-has-no-attribute-with
+        , 'jinja2 <= 3.0.2'
+        # markupsafe == 2.0.1 reason:
+        #   cannot import name 'soft_unicode' from 'markupsafe'
+        , 'markupsafe==2.0.1'
+        , 'kamidana'
+    ]
     , tests_require=test_deps
     , test_suite="tests.test_suite"
     , extras_require={

@@ -1,5 +1,5 @@
-* clang-*c
-{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("*clang-*c") %}
+* cpython-3*
+{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("cpython-3*") %}
 {%- for compiler in compilers %}
   * {{ compiler.name }}
 {%- endfor %}

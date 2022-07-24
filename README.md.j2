@@ -17,8 +17,8 @@ amaterasu cli is kamidana wrapper, Adds additional option automatically.
 ```sh
 $ pip install amaterasu-j2
 $ amaterasu sample/wandbox.j2
-* clang-3*c
-{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("*clang-3*c") %}
+* cpython-3*
+{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("cpython-3*") %}
 {%- for compiler in compilers %}
   * {{ compiler.name }}
 {%- endfor %}
@@ -27,8 +27,8 @@ $ amaterasu sample/wandbox.j2
 sample/wandbox.j2
 {% raw %}
 ```j2
-* clang-3*c
-{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("*clang-3*c") %}
+* cpython-3*
+{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("cpython-3*") %}
 {%- for compiler in compilers %}
   * {{ compiler.name }}
 {%- endfor %}
@@ -39,7 +39,8 @@ sample/wandbox.j2
 ````sh
 $ pip install amaterasu-j2
 $ amaterasu sample/wandbox-run.j2
-{%- set compiler = "cpython-3.8.0" %}
+{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("cpython-3*") %}
+{%- set compiler = compilers[0].name %}
 {%- set src = fread("sample/main.py") %}
 ```
 {{ src }}
@@ -57,7 +58,8 @@ $ amaterasu sample/wandbox-run.j2
 sample/wandbox-run.j2
 {% raw %}
 ````j2
-{%- set compiler = "cpython-3.8.0" %}
+{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("cpython-3*") %}
+{%- set compiler = compilers[0].name %}
 {%- set src = fread("sample/main.py") %}
 ```
 {{ src }}
@@ -77,8 +79,8 @@ sample/wandbox-run.j2
 ```sh
 $ pip install amaterasu-j2
 $ kamidana -a=amaterasu.amaterasu sample/wandbox.j2
-* clang-3*c
-{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("*clang-3*c") %}
+* cpython-3*
+{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("cpython-3*") %}
 {%- for compiler in compilers %}
   * {{ compiler.name }}
 {%- endfor %}

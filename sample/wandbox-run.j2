@@ -1,4 +1,5 @@
-{%- set compiler = "cpython-3*" %}
+{%- set compilers = wandbox_list() | wandbox_fnmatch_compilers("cpython-3*") %}
+{%- set compiler = compilers[0] %}
 {%- set src = fread("sample/main.py") %}
 ```
 {{ src }}

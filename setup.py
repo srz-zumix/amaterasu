@@ -43,7 +43,8 @@ setup(
             'amaterasu = amaterasu.__main__:main'
         ]
     }
-    # jinja2 <= 3.0.2 reason: https://stackoverflow.com/questions/72163382/attributeerror-module-jinja2-ext-has-no-attribute-with
+    # jinja2 <= 3.0.2 reason:
+    #   https://stackoverflow.com/questions/72163382/attributeerror-module-jinja2-ext-has-no-attribute-with
     , install_requires=['requests', 'pyyaml', 'wandbox-api >= 0.9.28', 'jinja2 <= 3.0.2', 'kamidana']
     , tests_require=test_deps
     , test_suite="tests.test_suite"
